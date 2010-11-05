@@ -1,0 +1,41 @@
+[user]
+  name = alanpeabody
+  email = gapeabody@gmail.com
+	
+[github]
+  user = alanpeabody
+  token = 6a941b9c4eb068d96b82c181f62cd989
+
+[alias]
+  co = checkout
+  st = status
+  ci = commit
+  cia = commit -a
+  cp = cherry-pick
+  br = branch
+  bra = branch -a
+  po = remote prune origin
+  erdone = push origin
+
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+  interactive = auto
+  ui = true
+
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
