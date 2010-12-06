@@ -39,3 +39,12 @@
   added = yellow
   changed = green
   untracked = cyan
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[merge]
+	tool = vimdiff
+	keepBackup = false
+[mergetool]
+	keepBackup = false

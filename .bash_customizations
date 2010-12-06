@@ -1,0 +1,25 @@
+# To Implement add following lines to .bashrc
+
+#if [ -f ~/Dropbox/DotFiles/.bash_customizations ]; then
+#  . ~/Dropbox/DotFiles/.bash_customizations
+#fi
+
+
+function parse_git_dirty {
+  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+}
+
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+}
+
+function rvm_version {
+  local gemset=$(echo $GEM_HOME | awk -F'@' '{print $2}')
+  [ "$gemset" != "" ] && gemset="@$gemset"
+  local version=$(echo $MY_RUBY_HOME | awk -F'-' '{print $2}')
+  [ "$version" != "" ] && version="$version"
+  local full="$version$gemset"
+  [ "$full" != "" ] && echo "$full"
+}
+
+export PS1='[\@] [$(rvm_version)] $(__git_ps1 "[\[\e[0;32m\]%s\[\e[0m\]\[\e[0;33m\]$(parse_git_dirty)\[\e[0m\]]") \n\u@\h:\w $ '
