@@ -93,3 +93,7 @@ vmap <C-F7> "zp`]
 cmap <F7> <C-r><C-o>z
 "copy register
 autocmd FocusGained * let @z=@+
+
+
+" ConqueTerm terminals update when not focused.
+let g:ConqueTerm_ReadUnfocused = 1
