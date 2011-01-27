@@ -71,6 +71,26 @@ autocmd BufNewFile,BufRead *.scss set filetype=css
 " Map jj to escape
 imap jj <Esc>
 
+" Change the leader to ,
+let mapleader=","
+
+" Map ; to :
+nnoremap ; :
+
+" Easy window nav
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" up and down by visual line, not line number
+nnoremap j gj
+nnoremap k gk
+
+" Quickly edit/reload the .vimrc
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
 " Disable arrow keys.
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
