@@ -68,6 +68,10 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 " Automatically highlight scss as css.
 autocmd BufNewFile,BufRead *.scss set filetype=css
 
+" highlight thor as ruby
+autocmd BufNewFile,BufRead *.thor set filetype=ruby
+
+
 " Map jj to escape
 imap jj <Esc>
 
