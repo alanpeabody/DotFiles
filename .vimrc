@@ -25,8 +25,14 @@ set statusline+=%{fugitive#statusline()}
 " My preferred font and size (open source)
 " set gfn=DejaVu\ Sans\ Mono\ 11
 set gfn=Droid\ Sans\ Mono\ 11
+
+" Use 256 color terminal
+" sudo apt-get install ncurses-term
+set term=xterm-256color
+
 "colorscheme vividchalk
-colorscheme railscasts
+"colorscheme railscasts
+colorscheme dark-ruby
 
 " Remember last 1000 commands
 set history=1000
@@ -87,6 +93,10 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" Easy tab nav
+map <C-n> :tabnext<CR>
+map <C-p> :tabprev<CR>
+
 " up and down by visual line, not line number
 nnoremap j gj
 nnoremap k gk
@@ -105,19 +115,8 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
-
-" MacVim may not need any of this
-"copy F7
-vmap <F7> "+ygv"zy`>
-"paste (Shift-F7 to paste after normal cursor, Ctrl-F7 to paste over visual selection)
-nmap <F7> "zgP
-nmap <S-F7> "zgp
-imap <F7> <C-r><C-o>z
-vmap <C-F7> "zp`]
-cmap <F7> <C-r><C-o>z
-"copy register
-autocmd FocusGained * let @z=@+
-
+" Use global clipboard so you can interact with the world
+set clipboard=unnamed
 
 " ConqueTerm terminals update when not focused.
 let g:ConqueTerm_ReadUnfocused = 1
