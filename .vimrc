@@ -7,6 +7,9 @@ call pathogen#runtime_append_all_bundles()
 " Buffers do not have to be saved before they can be hidden. Might be confusing for some.
 set hidden
 
+"always set terminal title
+set title
+
 " guioptions e = show tabs, m = show menu
 set guioptions=e
 
@@ -28,11 +31,11 @@ set gfn=Droid\ Sans\ Mono\ 11
 
 " Use 256 color terminal
 " sudo apt-get install ncurses-term
-set term=xterm-256color
+" set term=xterm-256color
 
 "colorscheme vividchalk
 "colorscheme railscasts
-colorscheme dark-ruby
+"colorscheme dark-ruby
 
 " Remember last 1000 commands
 set history=1000
@@ -56,10 +59,15 @@ set softtabstop=2
 set autoindent
 
 " Better auto indenting?
+filetype off
 filetype plugin indent on
 
 " Ubuntu uses ack-grep instead of ack.
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+
+" Command T settings
+set wildignore+=tmp/*,logs/*,.git
+let g:CommandTMaxHeight=15
 
 " Edit routes
 command! Rroutes :Redit config/routes.rb
@@ -100,6 +108,14 @@ map <C-p> :tabprev<CR>
 " up and down by visual line, not line number
 nnoremap j gj
 nnoremap k gk
+
+" Move current line up or down
+nnoremap <leader>k ddkP
+nnoremap <leader>j ddp
+
+" Move current work left or right
+nnoremap <leader>h "_yiw?\w\+\_W\+\%#<CR>:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><C-o><C-l>
+nnoremap <leader>l "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><C-o>/\w\+\_W\+<CR><C-l>
 
 " Quickly edit/reload the .vimrc
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
