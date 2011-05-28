@@ -23,3 +23,6 @@ function rvm_version {
 }
 
 export PS1='[\@] [$(rvm_version)] $(__git_ps1 "[\[\e[0;32m\]%s\[\e[0m\]\[\e[0;33m\]$(parse_git_dirty)\[\e[0m\]]") \n\u@\h:\w $ '
+
+# Resque queues prioritized.
+export QUEUE=csv_importer,pre_calculator,alarms,csv_importer_backlogged,pre_calculator_backlogged,alarms_backlogged,*

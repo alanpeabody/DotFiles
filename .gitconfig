@@ -8,6 +8,7 @@
 
 [alias]
   co = checkout
+  cob = checkout -b
   st = status
   ci = commit
   cia = commit -a
@@ -16,6 +17,7 @@
   bra = branch -a
   po = remote prune origin
   erdone = push origin
+  rmb = !sh -c 'git branch -D $1 && git push origin :$1 && git remote prune origin' -
 
 [color]
   branch = auto

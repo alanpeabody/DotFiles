@@ -31,11 +31,18 @@ set gfn=Droid\ Sans\ Mono\ 11
 
 " Use 256 color terminal
 " sudo apt-get install ncurses-term
-" set term=xterm-256color
+set term=xterm-256color
+
+syntax enable
+set background=dark
 
 "colorscheme vividchalk
 "colorscheme railscasts
 "colorscheme dark-ruby
+"let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+colorscheme solarized
+
 
 " Remember last 1000 commands
 set history=1000
@@ -66,7 +73,7 @@ filetype plugin indent on
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
 " Command T settings
-set wildignore+=tmp/*,logs/*,.git
+set wildignore+=tmp/*,logs/*,.git,coverage/*
 let g:CommandTMaxHeight=15
 
 " Edit routes
@@ -133,6 +140,7 @@ noremap   <Right>  <NOP>
 
 " Use global clipboard so you can interact with the world
 set clipboard=unnamed
+"set clipboard=unnamedplus "vim 7.3.74+
 
 " ConqueTerm terminals update when not focused.
 let g:ConqueTerm_ReadUnfocused = 1
