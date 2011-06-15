@@ -142,5 +142,4 @@ noremap   <Right>  <NOP>
 set clipboard=unnamed
 "set clipboard=unnamedplus "vim 7.3.74+
 
-" ConqueTerm terminals update when not focused.
-let g:ConqueTerm_ReadUnfocused = 1
+noremap <leader>n :NERDTreeToggle<CR>

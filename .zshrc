@@ -33,5 +33,7 @@ export PATH=$HOME/local/bin:$PATH
 bindkey -M viins "jj" vi-cmd-mode
 
 export EDITOR=vim
+alias ack=ack-grep
+export QUEUE=csv_importer,pre_calculator,alarms,csv_importer_backlogged,pre_calculator_backlogged,alarms_backlogged,auto_mapper
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
