@@ -47,7 +47,7 @@ task :symlink do
         end
       end
       FileUtils.rm(target) if overwrite || overwrite_all
-      `mv "$HOME/.#{file}" "$HOME/.#{file}.backup"` if backup || backup_all
+      `mv "$HOME/#{file}" "$HOME/#{file}.backup"` if backup || backup_all
     end
     `ln -s "$PWD/#{file}" "#{target}"`
   end
