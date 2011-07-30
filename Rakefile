@@ -1,13 +1,26 @@
 require 'rake'
+require 'ruby-debug'
 
 # Insprired by Zach Holman's dot file install script.
 # (But not nearly as organized nor well done. (step two?))
 
 desc "Install my Dot files."
-
-task :install => [:symlink, :run_scripts]
+task :update_and_symlink => [:update, :symlink, :run_scripts]
 
 task :run_scripts do
+end
+
+desc "Update git submodules."
+task :update do
+
+  `git submodule init && git submodule update`
+  submodules = `git submodule`.split("\n")
+
+  submodules.each do |sub|
+    path = sub.strip.split(" ")[1]
+    puts `cd #{path} && git checkout master && git pull origin master`
+  end
+
 end
 
 task :symlink do
@@ -33,11 +46,11 @@ task :symlink do
         when 'S' then skip_all = true
         end
       end
-      FileUtils.rm_rf(target) if overwrite || overwrite_all
+      FileUtils.rm(target) if overwrite || overwrite_all
       `mv "$HOME/.#{file}" "$HOME/.#{file}.backup"` if backup || backup_all
     end
     `ln -s "$PWD/#{file}" "#{target}"`
   end
 end
 
-task :default => 'install'
+task :default => 'update'
