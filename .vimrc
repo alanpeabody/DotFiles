@@ -69,6 +69,12 @@ set autoindent
 filetype off
 filetype plugin indent on
 
+" Code folding
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=1
+
 " Ubuntu uses ack-grep instead of ack.
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
