@@ -66,6 +66,9 @@ set expandtab
 set softtabstop=2
 set autoindent
 
+" Show trailing whitespace
+set list listchars=tab:\ \ ,trail:·
+
 " Better auto indenting?
 filetype off
 filetype plugin indent on
