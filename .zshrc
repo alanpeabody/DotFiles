@@ -21,14 +21,14 @@ export DISABLE_AUTO_UPDATE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rails3 ruby command-not-found vi-mode rvm bundle)
+plugins=(git rails3 ruby vi-mode rvm)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
 # Node.js/npm path
-export PATH=$HOME/local/bin:$PATH
+#export PATH=$HOME/local/bin:$PATH
 
 bindkey -M viins "jj" vi-cmd-mode
 bindkey -M viins '^r' history-incremental-search-backward
@@ -39,4 +39,4 @@ export EDITOR=vim
 alias ack=ack-grep
 export QUEUE=csv_importer,pre_calculator,alarms,csv_importer_backlogged,pre_calculator_backlogged,alarms_backlogged,data_export,setup
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
