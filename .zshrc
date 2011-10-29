@@ -30,6 +30,7 @@ source $ZSH/oh-my-zsh.sh
 # Node.js/npm path
 #export PATH=$HOME/local/bin:$PATH
 
+# Make ZSH vi mode behave more like vim mode
 bindkey -M viins "jj" vi-cmd-mode
 bindkey -M viins '^r' history-incremental-search-backward
 bindkey -M vicmd '^r' history-incremental-search-backward
@@ -38,5 +39,6 @@ bindkey -M viins '^?' backward-delete-char
 export EDITOR=vim
 alias ack=ack-grep
 export QUEUE=csv_importer,pre_calculator,alarms,csv_importer_backlogged,pre_calculator_backlogged,alarms_backlogged,data_export,setup
+alias wip='cucumber -p wip'
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
