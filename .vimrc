@@ -28,7 +28,7 @@ set statusline+=%{fugitive#statusline()}
 
 " My preferred font and size (open source)
 " set gfn=DejaVu\ Sans\ Mono\ 11
-set gfn=Droid\ Sans\ Mono\ 11
+set gfn=Droid\ Sans\ Mono\ 10
 
 " Use 256 color terminal
 " sudo apt-get install ncurses-term
@@ -87,10 +87,10 @@ set wildignore+=tmp/*,logs/*,.git,coverage/*
 let g:CommandTMaxHeight=15
 
 " Edit routes
-command! Rroutes :Redit config/routes.rb
-command! RSroutes :RSedit config/routes.rb
-command! RTroutes :RTedit config/routes.rb
-command! RVroutes :RVedit config/routes.rb
+command! Rroutes :R config/routes.rb
+command! RSroutes :RS config/routes.rb
+command! RTroutes :RT config/routes.rb
+command! RVroutes :RV config/routes.rb
 
 " store backups in central location
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
