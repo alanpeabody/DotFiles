@@ -40,5 +40,6 @@ export EDITOR=vim
 alias ack=ack-grep
 export QUEUE=csv_importer,pre_calculator,alarms,csv_importer_backlogged,pre_calculator_backlogged,alarms_backlogged,data_export,setup
 alias wip='cucumber -p wip'
+alias dbreset='bundle && thor import_from_prod:stale --app && rake migrate:all && RAILS_ENV=cucumber rake db:schema:load'
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
