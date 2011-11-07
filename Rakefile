@@ -1,5 +1,4 @@
 require 'rake'
-require 'ruby-debug'
 
 # Insprired by Zach Holman's dot file install script.
 # (But not nearly as organized nor well done. (step two?))
