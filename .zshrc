@@ -36,6 +36,8 @@ bindkey -M viins '^r' history-incremental-search-backward
 bindkey -M vicmd '^r' history-incremental-search-backward
 bindkey -M viins '^?' backward-delete-char
 
+alias git='nocorrect git'
+
 export EDITOR=vim
 alias ack=ack-grep
 export QUEUE=csv_importer,pre_calculator,alarms,csv_importer_backlogged,pre_calculator_backlogged,alarms_backlogged,data_export,setup
