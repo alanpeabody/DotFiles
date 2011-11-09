@@ -154,6 +154,11 @@ set clipboard=unnamed
 
 noremap <leader>n :NERDTreeToggle<CR>
 
+" Change ruby 1.8 hash syntax to 1.9, with confirmation
+map <leader>h :%s/:\(\w*\)\(\s*\)=>\(\s*\)/\1:\3/gc<CR>
+
+" Change ruby 1.8 hash syntax to 1.9, without confirmation
+map <leader>H :%s/:\(\w*\)\(\s*\)=>\(\s*\)/\1:\3/g<CR>
 
 " Align cucumber tables.
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
