@@ -31,10 +31,16 @@ source $ZSH/oh-my-zsh.sh
 #export PATH=$HOME/local/bin:$PATH
 
 # Make ZSH vi mode behave more like vim mode
-bindkey -M viins "jj" vi-cmd-mode
+bindkey -M viins 'jj' vi-cmd-mode
+bindkey -M viins '^?' backward-delete-char
+
+# Control r for search
 bindkey -M viins '^r' history-incremental-search-backward
 bindkey -M vicmd '^r' history-incremental-search-backward
-bindkey -M viins '^?' backward-delete-char
+
+# modify up down behavior to search based on current command
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
 
 alias git='nocorrect git'
 
