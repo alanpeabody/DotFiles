@@ -149,8 +149,14 @@ noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
 " Use global clipboard so you can interact with the world
+" On Linux you need to install the package 'autocutsel' and add the following
+" to xinit.rc:
+" autocutsel -fork &
+" autocutsel -selection PRIMARY -fork &
+" This fixes some wonky behavior due to X11s remote desktop history and keeps
+" all your clipboards the same across all your apps. See:
+" http://mutelight.org/articles/subtleties-of-the-x-clipboard
 set clipboard=unnamed
-"set clipboard=unnamedplus "vim 7.3.74+
 
 noremap <leader>n :NERDTreeToggle<CR>
 
