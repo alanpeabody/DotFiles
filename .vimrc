@@ -80,7 +80,7 @@ set nofoldenable
 set foldlevel=1
 
 " Ubuntu uses ack-grep instead of ack.
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+let g:ackprg="ack -H --nocolor --nogroup --column"
 
 " Command T settings
 set wildignore+=tmp/*,logs/*,.git,coverage/*
@@ -159,6 +159,12 @@ map <leader>h :%s/:\(\w*\)\(\s*\)=>\(\s*\)/\1:\3/gc<CR>
 
 " Change ruby 1.8 hash syntax to 1.9, without confirmation
 map <leader>H :%s/:\(\w*\)\(\s*\)=>\(\s*\)/\1:\3/g<CR>
+
+" Remove trailing whitespace
+map <leader>w :%s/\s\+$//g<CR>
+
+" Replace tabs with two spaces
+map <leader>W :retab<CR>
 
 " Align cucumber tables.
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
