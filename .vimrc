@@ -70,6 +70,9 @@ set autoindent
 set wildmenu
 set wildmode=list:longest,full
 
+" Enable mouse (useful for scrolling when side by side with browser etc)
+set mouse=a
+
 " Show trailing whitespace
 set list listchars=tab:\ \ ,trail:·
 
