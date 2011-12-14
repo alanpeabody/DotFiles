@@ -66,6 +66,10 @@ set expandtab
 set softtabstop=2
 set autoindent
 
+" Use wildmenu!
+set wildmenu
+set wildmode=list:longest,full
+
 " Show trailing whitespace
 set list listchars=tab:\ \ ,trail:·
 
@@ -83,7 +87,7 @@ set foldlevel=1
 let g:ackprg="ack -H --nocolor --nogroup --column"
 
 " Command T settings
-set wildignore+=tmp/*,logs/*,.git,coverage/*
+set wildignore+=tmp/*,logs/*,.git,coverage/*,.log
 let g:CommandTMaxHeight=15
 
 " Edit routes
