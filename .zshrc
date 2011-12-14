@@ -47,7 +47,10 @@ alias git='nocorrect git'
 export EDITOR=vim
 alias ack=ack-grep
 export QUEUE=csv_importer,pre_calculator,alarms,csv_importer_backlogged,pre_calculator_backlogged,alarms_backlogged,data_export,setup
-alias wip='cucumber -p wip'
+alias wip='bundle exec cucumber -p wip'
 alias dbreset='bundle && thor import_from_prod:stale --app && rake migrate:all && RAILS_ENV=cucumber rake db:schema:load'
+alias fullcuke='bundle && bundle exec rake db:schema:load RAILS_ENV=cucumber && bundle exec cucumber -t ~@slow'
+alias guardr='bundle exec guard -c -g rspec -n f'
+alias guardc='bundle exec rake db:schema:load RAILS_ENV=cucumber && bundle exec guard -c -g cucumber -n f'
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
