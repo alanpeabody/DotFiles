@@ -79,3 +79,9 @@
 [submodule ".vim/bundle/vim-clojure"]
 	path = .vim/bundle/vim-clojure
 	url = https://github.com/vim-scripts/VimClojure.git
+[submodule ".vim/bundle/vim-rdark"]
+	path = .vim/bundle/vim-rdark
+	url = https://github.com/vim-scripts/rdark.git
+[submodule ".vim/bundle/vim-zenburn"]
+	path = .vim/bundle/vim-zenburn
+	url = https://github.com/jnurmine/Zenburn.git

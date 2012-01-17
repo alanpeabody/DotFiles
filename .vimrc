@@ -44,6 +44,8 @@ set background=dark
 let g:solarized_termtrans=1
 colorscheme solarized
 
+let vimclojure#HighlightBuiltins=1
+let vimclojure#ParenRainbow=1
 
 " Remember last 1000 commands
 set history=1000
