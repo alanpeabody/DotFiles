@@ -27,8 +27,8 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-# Node.js/npm path
-#export PATH=$HOME/local/bin:$PATH
+# Add ~/bin to path
+export PATH=$HOME/bin:$PATH
 
 # Make ZSH vi mode behave more like vim mode
 bindkey -M viins 'jj' vi-cmd-mode
