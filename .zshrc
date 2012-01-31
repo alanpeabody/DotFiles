@@ -53,4 +53,6 @@ alias fullcuke='bundle && bundle exec rake db:schema:load RAILS_ENV=cucumber && 
 alias guardr='bundle exec guard -c -g rspec -n f'
 alias guardc='bundle exec rake db:schema:load RAILS_ENV=cucumber && bundle exec guard -c -g cucumber -n f'
 
+export VIMCLOJURE_SERVER_JAR="$HOME/.vim/vim-clojure/server-2.3.1.jar"
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"

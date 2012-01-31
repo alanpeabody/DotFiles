@@ -44,8 +44,13 @@ set background=dark
 let g:solarized_termtrans=1
 colorscheme solarized
 
+" Vim Clojure settings
 let vimclojure#HighlightBuiltins=1
+let vimclojure#HighlightContrib=1
+let vimclojure#DynamicHighlighting=1
+let vimclojure#FuzzyIndent=1
 let vimclojure#ParenRainbow=1
+let vimclojure#WantNailgun=1
 
 " Remember last 1000 commands
 set history=1000
@@ -117,6 +122,7 @@ imap jj <Esc>
 
 " Change the leader to ,
 let mapleader=","
+let maplocalleader=","
 
 " Map ; to :
 nnoremap ; :
