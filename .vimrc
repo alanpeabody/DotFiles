@@ -96,9 +96,7 @@ set foldlevel=1
 " Ubuntu uses ack-grep instead of ack.
 let g:ackprg="ack -H --nocolor --nogroup --column"
 
-" Command T settings
-set wildignore+=tmp/*,logs/*,.git,coverage/*,.log
-let g:CommandTMaxHeight=15
+set wildignore+=tmp/*,logs/*,.git,coverage/*,.log,*.class,*.pom,*.jar,.gitkeep
 
 " Edit routes
 command! Rroutes :R config/routes.rb
@@ -174,6 +172,8 @@ noremap   <Right>  <NOP>
 set clipboard=unnamed
 
 noremap <leader>n :NERDTreeToggle<CR>
+let g:ctrlp_map = '<leader>t'
+
 
 " Change ruby 1.8 hash syntax to 1.9, with confirmation
 map <leader>h :%s/:\(\w*\)\(\s*\)=>\(\s*\)/\1:\3/gc<CR>
