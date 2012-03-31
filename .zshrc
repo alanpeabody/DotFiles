@@ -17,11 +17,11 @@ export DISABLE_AUTO_UPDATE="true"
 # export DISABLE_LS_COLORS="true"
 
 # Uncomment following line if you want to disable autosetting terminal title.
-# export DISABLE_AUTO_TITLE="true"
+export DISABLE_AUTO_TITLE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rails3 ruby vi-mode rvm)
+plugins=(git rails3 ruby vi-mode rvm lein)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -42,10 +42,14 @@ bindkey -M vicmd '^r' history-incremental-search-backward
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
-alias git='nocorrect git'
-
 export EDITOR=vim
-alias ack=ack-grep
+
+# System shortcuts
+alias git='nocorrect git'
+alias ll='ls -lth'
+alias lla='ls -ltha'
+
+# Sentalis
 export QUEUE=csv_importer,pre_calculator,alarms,csv_importer_backlogged,pre_calculator_backlogged,alarms_backlogged,data_export,setup
 alias wip='bundle exec cucumber -p wip'
 alias dbreset='bundle && thor import_from_prod:stale --app && rake migrate:all && RAILS_ENV=cucumber rake db:schema:load'
@@ -53,6 +57,29 @@ alias fullcuke='bundle && bundle exec rake db:schema:load RAILS_ENV=cucumber && 
 alias guardr='bundle exec guard -c -g rspec -n f'
 alias guardc='bundle exec rake db:schema:load RAILS_ENV=cucumber && bundle exec guard -c -g cucumber -n f'
 
+# Vim Clojure
 export VIMCLOJURE_SERVER_JAR="$HOME/.vim/vim-clojure/server-2.3.1.jar"
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+# Cassandra
+export CASSANDRA_HOME="$HOME/cassandra"
+export PATH=$PATH:$CASSANDRA_HOME/bin
+
+# On OSX...
+if [ $(uname) = "Darwin" ] ; then
+  # Use mvim in terminal mode with better clipboard support
+  alias vim='mvim -v'
+fi
+
+# On Ubuntu...
+if [ $(uname -a | grep Ubuntu | wc -l) = 1 ] ; then
+  alias ack='ack-grep'
+fi
+
+# Tmux
+alias tmux='tmux -2'
+alias topen='tmuxinator open'
+alias tstart='tmuxinator start'
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
+# RVM
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
