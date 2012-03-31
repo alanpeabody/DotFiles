@@ -17,6 +17,9 @@ set guioptions=e
 " Always show status line
 set laststatus=2
 
+" Set osx true if running in osx
+let osx = substitute(system("uname"), "\n", "", "") == "Darwin"
+
 " Show file name first in status bar
 set statusline=%t
 
@@ -37,6 +40,10 @@ set term=xterm-256color
 syntax enable
 set background=dark
 
+"Show 80 line mark
+set cc=80
+highlight ColorColumn ctermbg=black
+
 "colorscheme vividchalk
 "colorscheme railscasts
 "colorscheme dark-ruby
@@ -49,8 +56,37 @@ let vimclojure#HighlightBuiltins=1
 let vimclojure#HighlightContrib=1
 let vimclojure#DynamicHighlighting=1
 let vimclojure#FuzzyIndent=1
-let vimclojure#ParenRainbow=1
 let vimclojure#WantNailgun=1
+
+" Color translation guide
+" solarized    = actual
+" magenta      = purple
+" darkmagenta  = pink
+" blue         = light grey
+" darkblue     = blue
+" red          = orange
+" darkred      = red
+" cyan         = really light grey
+" darkcyan     = light cyan
+" green        = medium grey
+" darkgreen    = yellow
+" yellow       = medium grey
+" darkyellow   = orange
+
+" Make rainbow parens work with solarized terminal vim
+let vimclojure#ParenRainbowColors = {
+      \ '0': 'ctermfg=green        guifg=green',
+      \ '1': 'ctermfg=darkyellow   guifg=darkyellow',
+      \ '2': 'ctermfg=magenta      guifg=magenta',
+      \ '3': 'ctermfg=darkgreen    guifg=darkgreen',
+      \ '4': 'ctermfg=darkcyan     guifg=darkcyan',
+      \ '5': 'ctermfg=darkmagenta  guifg=darkmagenta',
+      \ '6': 'ctermfg=darkblue     guifg=darkblue',
+      \ '7': 'ctermfg=darkred      guifg=darkred',
+      \ '8': 'ctermfg=yellow       guifg=yellow',
+      \ '9': 'ctermfg=cyan         guifg=cyan'
+      \ }
+let vimclojure#ParenRainbow=1
 
 " Remember last 1000 commands
 set history=1000
@@ -96,9 +132,7 @@ set foldlevel=1
 " Ubuntu uses ack-grep instead of ack.
 let g:ackprg="ack -H --nocolor --nogroup --column"
 
-" Command T settings
-set wildignore+=tmp/*,logs/*,.git,coverage/*,.log
-let g:CommandTMaxHeight=15
+set wildignore+=tmp/*,logs/*,.git,coverage/*,.log,*.class,*.pom,*.jar,.gitkeep
 
 " Edit routes
 command! Rroutes :R config/routes.rb
@@ -145,7 +179,7 @@ nnoremap k gk
 nnoremap <leader>k ddkP
 nnoremap <leader>j ddp
 
-" Move current work left or right
+" Move current word left or right
 nnoremap <leader>h "_yiw?\w\+\_W\+\%#<CR>:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><C-o><C-l>
 nnoremap <leader>l "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><C-o>/\w\+\_W\+<CR><C-l>
 
@@ -171,9 +205,14 @@ noremap   <Right>  <NOP>
 " This fixes some wonky behavior due to X11s remote desktop history and keeps
 " all your clipboards the same across all your apps. See:
 " http://mutelight.org/articles/subtleties-of-the-x-clipboard
-set clipboard=unnamed
+if osx
+  "TODO: figure out how to integrate yank ring with osx.
+else
+  set clipboard=unnamed
+endif
 
 noremap <leader>n :NERDTreeToggle<CR>
+let g:ctrlp_map = '<leader>t'
 
 " Change ruby 1.8 hash syntax to 1.9, with confirmation
 map <leader>h :%s/:\(\w*\)\(\s*\)=>\(\s*\)/\1:\3/gc<CR>
@@ -200,3 +239,13 @@ function! s:align()
     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
   endif
 endfunction
+
+" Use ctrl h for clojure REPL history in OSX. (Because terminal.app catching
+" ctrl up)
+if osx
+  function! SetupMyVCRepl()
+    imap <buffer> <silent> <C-h> <Plug>ClojureReplUpHistory
+    imap <buffer> <silent> <C-g> <Plug>ClojureReplDownHistory
+  endfunction
+  autocmd FileType * if &ft == "clojure" && exists("b:vimclojure_repl") | call SetupMyVCRepl() | endif
+endif

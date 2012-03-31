@@ -1,6 +1,3 @@
-[submodule ".vim/bundle/command-t"]
-	path = .vim/bundle/command-t
-	url = git://git.wincent.com/command-t.git
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
@@ -85,3 +82,6 @@
 [submodule ".vim/bundle/vim-zenburn"]
 	path = .vim/bundle/vim-zenburn
 	url = https://github.com/jnurmine/Zenburn.git
+[submodule ".vim/bundle/ctrlp"]
+	path = .vim/bundle/ctrlp
+	url = https://github.com/kien/ctrlp.vim.git
