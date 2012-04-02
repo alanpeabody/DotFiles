@@ -76,10 +76,14 @@ if [ $(uname -a | grep Ubuntu | wc -l) = 1 ] ; then
 fi
 
 # Tmux
-alias tmux='tmux -2'
+alias tmux='TERM=xterm-256color tmux -2'
 alias topen='tmuxinator open'
 alias tstart='tmuxinator start'
+alias ttest='tmux new-session -s tests -t'
+alias tdm='tstart dm'
+alias ttdm='tmux new-session -s DarkerMatterTests -t DarkerMatter'
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 # RVM
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
