@@ -68,6 +68,9 @@ export PATH=$PATH:$CASSANDRA_HOME/bin
 if [ $(uname) = "Darwin" ] ; then
   # Use mvim in terminal mode with better clipboard support
   alias vim='mvim -v'
+
+  # Add sbin to path (for homebrew/rabbitmq)
+  export PATH=$PATH:/usr/local/sbin
 fi
 
 # On Ubuntu...
