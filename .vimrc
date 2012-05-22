@@ -250,4 +250,4 @@ if osx
   autocmd FileType * if &ft == "clojure" && exists("b:vimclojure_repl") | call SetupMyVCRepl() | endif
 endif
 
-autocmd FileType clojure setlocal lispwords+=fact,facts,future-facts,future-fact,against-background
+autocmd FileType clojure setlocal lispwords+=fact,facts,future-facts,future-fact,against-background,POST,GET,PUT,DELETE,HEAD,ANY,context
