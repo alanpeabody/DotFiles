@@ -213,6 +213,7 @@ endif
 
 noremap <leader>n :NERDTreeToggle<CR>
 let g:ctrlp_map = '<leader>t'
+let g:ctrlp_working_path_mode = 0
 
 " Change ruby 1.8 hash syntax to 1.9, with confirmation
 map <leader>h :%s/:\(\w*\)\(\s*\)=>\(\s*\)/\1:\3/gc<CR>

@@ -69,8 +69,18 @@ if [ $(uname) = "Darwin" ] ; then
   # Use mvim in terminal mode with better clipboard support
   alias vim='mvim -v'
 
+  # Use tmux OSX config
+  alias tmux="TERM=xterm-256color tmux -2 -f $HOME/.tmux.osx.conf"
+
   # Add sbin to path (for homebrew/rabbitmq)
   export PATH=$PATH:/usr/local/sbin
+fi
+
+# On Linux
+if [ $(uname) != "Darwin" ] ; then
+
+  # Use tmux linux config
+  alias tmux="TERM=xterm-256color tmux -2 -f $HOME/.tmux.linux.conf"
 fi
 
 # On Ubuntu...
@@ -79,7 +89,6 @@ if [ $(uname -a | grep Ubuntu | wc -l) = 1 ] ; then
 fi
 
 # Tmux
-alias tmux='TERM=xterm-256color tmux -2'
 alias topen='tmuxinator open'
 alias tstart='tmuxinator start'
 alias ttest='tmux new-session -s tests -t'

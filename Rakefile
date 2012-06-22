@@ -28,7 +28,7 @@ task :symlink do
   overwrite_all = false
   backup_all = false
 
-  ['.vimrc','.zshrc','.ackrc','.vim','.oh-my-zsh','.gitconfig','.tmux.conf','.xinitrc','.ssh/config'].each do |file|
+  ['.vimrc','.zshrc','.ackrc','.vim','.oh-my-zsh','.gitconfig','.tmux.conf','.tmux.osx.conf','.tmux.linux.conf','.xinitrc','.ssh/config'].each do |file|
     overwrite = false
     backup = false
 
