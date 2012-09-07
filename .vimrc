@@ -48,8 +48,13 @@ highlight ColorColumn ctermbg=black
 "colorscheme railscasts
 "colorscheme dark-ruby
 "let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-colorscheme solarized
+"let g:solarized_termtrans=1
+"colorscheme solarized
+
+colorscheme tomorrow-night
+
+" highlight current line
+set cursorline
 
 " Vim Clojure settings
 let vimclojure#HighlightBuiltins=1
@@ -74,18 +79,18 @@ let vimclojure#WantNailgun=1
 " darkyellow   = orange
 
 " Make rainbow parens work with solarized terminal vim
-let vimclojure#ParenRainbowColors = {
-      \ '0': 'ctermfg=green        guifg=green',
-      \ '1': 'ctermfg=darkyellow   guifg=darkyellow',
-      \ '2': 'ctermfg=magenta      guifg=magenta',
-      \ '3': 'ctermfg=darkgreen    guifg=darkgreen',
-      \ '4': 'ctermfg=darkcyan     guifg=darkcyan',
-      \ '5': 'ctermfg=darkmagenta  guifg=darkmagenta',
-      \ '6': 'ctermfg=darkblue     guifg=darkblue',
-      \ '7': 'ctermfg=darkred      guifg=darkred',
-      \ '8': 'ctermfg=yellow       guifg=yellow',
-      \ '9': 'ctermfg=cyan         guifg=cyan'
-      \ }
+"let vimclojure#ParenRainbowColors = {
+      "\ '0': 'ctermfg=green        guifg=green',
+      "\ '1': 'ctermfg=darkyellow   guifg=darkyellow',
+      "\ '2': 'ctermfg=magenta      guifg=magenta',
+      "\ '3': 'ctermfg=darkgreen    guifg=darkgreen',
+      "\ '4': 'ctermfg=darkcyan     guifg=darkcyan',
+      "\ '5': 'ctermfg=darkmagenta  guifg=darkmagenta',
+      "\ '6': 'ctermfg=darkblue     guifg=darkblue',
+      "\ '7': 'ctermfg=darkred      guifg=darkred',
+      "\ '8': 'ctermfg=yellow       guifg=yellow',
+      "\ '9': 'ctermfg=cyan         guifg=cyan'
+      "\ }
 let vimclojure#ParenRainbow=1
 
 " Remember last 1000 commands
@@ -99,8 +104,19 @@ set ruler
 set ignorecase
 set smartcase
 
-" Turn on spell checking (i need it)
+" Turn on spell checking (I need it)
 set spell
+highlight clear SpellBad
+highlight SpellBad term=underline cterm=underline
+highlight clear SpellCap
+highlight SpellCap term=underline cterm=underline
+highlight clear SpellRare
+highlight SpellRare term=underline cterm=underline
+highlight clear SpellLocal
+highlight SpellLocal term=underline cterm=underline
+
+" Toggle spelling with ,s
+nnoremap <leader>s :setlocal spell! spell?<CR>
 
 " Tabs set to always be two spaces
 set tabstop=2
