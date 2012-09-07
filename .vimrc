@@ -132,7 +132,7 @@ set foldlevel=1
 " Ubuntu uses ack-grep instead of ack.
 let g:ackprg="ack -H --nocolor --nogroup --column"
 
-set wildignore+=tmp/*,logs/*,.git,coverage/*,.log,*.class,*.pom,*.jar,.gitkeep
+set wildignore+=tmp/*,*.db,*.sha1,logs/*,.git,coverage/*,.log,*.class,*.pom,*.jar,.gitkeep
 
 " Edit routes
 command! Rroutes :R config/routes.rb
