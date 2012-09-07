@@ -48,6 +48,7 @@ export EDITOR=vim
 alias git='nocorrect git'
 alias ll='ls -lth'
 alias lla='ls -ltha'
+alias be='bundle exec'
 
 # Sentalis
 export QUEUE=csv_importer,pre_calculator,alarms,csv_importer_backlogged,pre_calculator_backlogged,alarms_backlogged,data_export,setup
@@ -74,6 +75,12 @@ if [ $(uname) = "Darwin" ] ; then
 
   # Add sbin to path (for homebrew/rabbitmq)
   export PATH=$PATH:/usr/local/sbin
+
+  # Let keychain work for gpg keys in lein
+  eval `keychain --eval --inherit any id_rsa`
+
+  # Prompt for gpg password
+  export GPG_TTY=`tty`
 fi
 
 # On Linux
