@@ -51,7 +51,7 @@ highlight ColorColumn ctermbg=black
 "let g:solarized_termtrans=1
 "colorscheme solarized
 
-colorscheme tomorrow-night
+colorscheme Tomorrow-Night
 
 " highlight current line
 set cursorline
