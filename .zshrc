@@ -58,12 +58,16 @@ alias fullcuke='bundle && bundle exec rake db:schema:load RAILS_ENV=cucumber && 
 alias guardr='bundle exec guard -c -g rspec -n f'
 alias guardc='bundle exec rake db:schema:load RAILS_ENV=cucumber && bundle exec guard -c -g cucumber -n f'
 
-# Vim Clojure
-export VIMCLOJURE_SERVER_JAR="$HOME/.vim/vim-clojure/server-2.3.1.jar"
-
 # Cassandra
 export CASSANDRA_HOME="$HOME/cassandra"
 export PATH=$PATH:$CASSANDRA_HOME/bin
+
+# Leiningen AWS creds
+if [[ -e $HOME/.lein/credentials.sh ]] ; then
+  # exports LEIN_USERNAME and LEIN_PASSWORD
+  # be smart, only use restricted access IAM keys
+  source $HOME/.lein/credentials.sh
+fi
 
 # On OSX...
 if [ $(uname) = "Darwin" ] ; then
@@ -75,12 +79,6 @@ if [ $(uname) = "Darwin" ] ; then
 
   # Add sbin to path (for homebrew/rabbitmq)
   export PATH=$PATH:/usr/local/sbin
-
-  # Let keychain work for gpg keys in lein
-  eval `keychain --eval --inherit any id_rsa`
-
-  # Prompt for gpg password
-  export GPG_TTY=`tty`
 fi
 
 # On Linux
