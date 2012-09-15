@@ -148,7 +148,13 @@ set foldlevel=1
 " Ubuntu uses ack-grep instead of ack.
 let g:ackprg="ack -H --nocolor --nogroup --column"
 
-set wildignore+=tmp/*,*.db,*.sha1,logs/*,.git,coverage/*,.log,*.class,*.pom,*.jar,.gitkeep
+set wildignore=*.o,*.out,*.obj,.git,*.rbc,*.class,.svn,*.gem,.gitkeep        " output & scm files
+set wildignore+=*.class,*.pom,*.jar,*.db,*.sha1                              " clojure artifacts
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz                      " archive files
+set wildignore+=*.jpg,*.jpeg,*.png,*.xpm,*.gif,*.bmp                         " pictures
+set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/* " bundler and sass
+set wildignore+=*/tmp/*,*/log/*,*.log,*/coverage/*                           " tmp, logs and rcov
+set wildignore+=*.swp,*~,._*                                                 " swp and backup files
 
 " Edit routes
 command! Rroutes :R config/routes.rb
