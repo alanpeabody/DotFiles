@@ -52,6 +52,7 @@ highlight ColorColumn ctermbg=black
 "colorscheme solarized
 
 colorscheme Tomorrow-Night
+highlight Normal ctermbg=NONE
 
 " highlight current line
 set cursorline
