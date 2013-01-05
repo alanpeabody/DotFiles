@@ -1,6 +1,8 @@
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
 
+export TERM=xterm-256color
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -29,6 +31,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Add ~/bin to path
 export PATH=$HOME/bin:$PATH
+
+# Add vagrant to path
+export PATH=/opt/vagrant/bin:$PATH
 
 # Make ZSH vi mode behave more like vim mode
 bindkey -M viins 'jj' vi-cmd-mode
