@@ -35,6 +35,9 @@ export PATH=$HOME/bin:$PATH
 # Add vagrant to path
 export PATH=/opt/vagrant/bin:$PATH
 
+# Add elixir to path
+export PATH=$HOME/elixir/elixir-0.8.0/bin:$PATH
+
 # Make ZSH vi mode behave more like vim mode
 bindkey -M viins 'jj' vi-cmd-mode
 bindkey -M viins '^?' backward-delete-char
@@ -55,24 +58,9 @@ alias ll='ls -lth'
 alias lla='ls -ltha'
 alias be='bundle exec'
 
-# Sentalis
-export QUEUE=csv_importer,pre_calculator,alarms,csv_importer_backlogged,pre_calculator_backlogged,alarms_backlogged,data_export,setup
-alias wip='bundle exec cucumber -p wip'
-alias dbreset='bundle && thor import_from_prod:stale --app && rake migrate:all && RAILS_ENV=cucumber rake db:schema:load'
-alias fullcuke='bundle && bundle exec rake db:schema:load RAILS_ENV=cucumber && bundle exec cucumber -t ~@slow'
-alias guardr='bundle exec guard -c -g rspec -n f'
-alias guardc='bundle exec rake db:schema:load RAILS_ENV=cucumber && bundle exec guard -c -g cucumber -n f'
-
 # Cassandra
 export CASSANDRA_HOME="$HOME/cassandra"
 export PATH=$PATH:$CASSANDRA_HOME/bin
-
-# Leiningen AWS creds
-if [[ -e $HOME/.lein/credentials.sh ]] ; then
-  # exports LEIN_USERNAME and LEIN_PASSWORD
-  # be smart, only use restricted access IAM keys
-  source $HOME/.lein/credentials.sh
-fi
 
 # On OSX...
 if [ $(uname) = "Darwin" ] ; then
@@ -102,8 +90,6 @@ fi
 alias topen='tmuxinator open'
 alias tstart='tmuxinator start'
 alias ttest='tmux new-session -s tests -t'
-alias tdm='tstart dm'
-alias ttdm='tmux new-session -s DarkerMatterTests -t DarkerMatter'
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 # RVM
