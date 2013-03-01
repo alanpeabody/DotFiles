@@ -36,7 +36,7 @@ export PATH=$HOME/bin:$PATH
 export PATH=/opt/vagrant/bin:$PATH
 
 # Add elixir to path
-export PATH=$HOME/elixir/elixir-0.8.0/bin:$PATH
+export PATH=$HOME/elixir/elixir-git/bin:$PATH
 
 # Make ZSH vi mode behave more like vim mode
 bindkey -M viins 'jj' vi-cmd-mode

@@ -167,9 +167,6 @@ command! RVroutes :RV config/routes.rb
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
-" Automatically highlight scss as css.
-autocmd BufNewFile,BufRead *.scss set filetype=css
-
 " highlight thor as ruby
 autocmd BufNewFile,BufRead *.thor set filetype=ruby
 
@@ -197,14 +194,6 @@ map <C-p> :tabprev<CR>
 " up and down by visual line, not line number
 nnoremap j gj
 nnoremap k gk
-
-" Move current line up or down
-nnoremap <leader>k ddkP
-nnoremap <leader>j ddp
-
-" Move current word left or right
-nnoremap <leader>h "_yiw?\w\+\_W\+\%#<CR>:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><C-o><C-l>
-nnoremap <leader>l "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><C-o>/\w\+\_W\+<CR><C-l>
 
 " Quickly edit/reload the .vimrc
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -263,15 +252,5 @@ function! s:align()
     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
   endif
 endfunction
-
-" Use ctrl h for clojure REPL history in OSX. (Because terminal.app catching
-" ctrl up)
-if osx
-  function! SetupMyVCRepl()
-    imap <buffer> <silent> <C-h> <Plug>ClojureReplUpHistory
-    imap <buffer> <silent> <C-g> <Plug>ClojureReplDownHistory
-  endfunction
-  autocmd FileType * if &ft == "clojure" && exists("b:vimclojure_repl") | call SetupMyVCRepl() | endif
-endif
 
 autocmd FileType clojure setlocal lispwords+=fact,facts,future-facts,future-fact,against-background,POST,GET,PUT,DELETE,HEAD,ANY,context,deconstruct
