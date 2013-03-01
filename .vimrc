@@ -253,4 +253,13 @@ function! s:align()
   endif
 endfunction
 
+if exists(":Tabularize")
+  nmap <leader>= :Tabularize /=<CR>
+  vmap <leader>= :Tabularize /=<CR>
+  nmap <leader>; :Tabularize /:\zs<CR>
+  vmap <leader>; :Tabularize /:\zs<CR>
+  nmap <leader>\ :Tabularize /\|<CR>
+  vmap <leader>\ :Tabularize /\|<CR>
+endif
+
 autocmd FileType clojure setlocal lispwords+=fact,facts,future-facts,future-fact,against-background,POST,GET,PUT,DELETE,HEAD,ANY,context,deconstruct
