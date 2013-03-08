@@ -181,6 +181,9 @@ let maplocalleader=","
 " Map ; to :
 nnoremap ; :
 
+" Map Y to behave like D, C
+map Y y$
+
 " Easy window nav
 map <C-h> <C-w>h
 map <C-j> <C-w>j
