@@ -18,6 +18,7 @@
   po = remote prune origin
   erdone = push origin
   rmb = !sh -c 'git branch -D $1 && git push origin :$1 && git remote prune origin' -
+  squash = !sh -c 'git fetch && git rebase -i origin/master' -
 
 [color]
   branch = auto
